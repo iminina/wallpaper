@@ -1,7 +1,7 @@
 __author__ = 'm_veremenko'
 
 import requests
-import json
+import ctypes
 
 payload = {'auth_token': 'W5hwWhkx24BVYnQPxMyZ'}
 user_url = "https://api.desktoppr.co/1/users/iminina"
@@ -22,4 +22,6 @@ if r2.status_code == 200:
     f.write(r2.content)
     f.close()
 
+SPI_SETDESKWALLPAPER = 20
+ctypes.windll.user32.SystemParametersInfoA(SPI_SETDESKWALLPAPER, 0, "D:/My/repo/wallpaper/sample.jpg", 0)
 
